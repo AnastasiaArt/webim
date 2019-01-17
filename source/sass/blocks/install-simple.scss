@@ -1,0 +1,58 @@
+.install-simple {
+  margin-top: 95px;
+  padding-bottom: 87px;
+  box-sizing: border-box;
+}
+.install-simple__title {
+  margin-bottom: 60px;
+}
+.install-simple__text {
+  @include font-style(26px, 36px, 400);
+
+  margin: 0;
+  padding: 0;
+  margin-bottom: 90px;
+}
+
+.install-simple__link {
+  padding-top: 135px;
+  width: 49%;
+  letter-spacing: 0.65px;
+  padding-left: 7%;
+  padding-right: 7%;
+  box-sizing: border-box;
+  position: relative;
+  vertical-align: top;
+
+  &::before {
+    @include font-style(150px, 24px, 700);
+    @include pseudo($content:"1");
+
+    opacity: 0.15;
+    color: $main-color;
+    letter-spacing: 3.75px;
+    top: 0;
+    left: 0;
+    width: 76px;
+    height: 106px;
+    z-index: 5;
+  }
+  &::after {
+    @include pseudo;
+
+    width: 72px;
+    height: 72px;
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url(../img/sprites.svg#email);
+    background-size: contain;
+    z-index: 10;
+    background-repeat: no-repeat;
+  }
+}
+.install-simple__link--html {
+  &::before {
+    @include pseudo($content:"2");
+  }
+}

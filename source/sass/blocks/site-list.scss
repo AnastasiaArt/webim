@@ -1,0 +1,13 @@
+.site-list {
+  margin-bottom: 20px;
+  margin-top: 100px;
+  border-bottom: 1px solid $main-color;
+}
+@include respond-to(large) {
+   .site-list {
+  order: 2;
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+}

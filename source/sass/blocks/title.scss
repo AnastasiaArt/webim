@@ -1,0 +1,12 @@
+.title {
+@include font-style(48px, 50px, 700);
+
+text-transform: uppercase;
+letter-spacing: 2.4px;
+margin: 0;
+padding: 0;
+margin-bottom: 66px;
+width: 100%;
+box-sizing: border-box;
+color: $main-color;
+}

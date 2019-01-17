@@ -1,0 +1,53 @@
+.nav-burger {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    cursor: pointer;
+    background: $accent-color;
+    box-sizing: border-box;
+    background-clip: content-box;
+    width: 57px;
+    height: 43px;
+    border-top: 19px solid transparent;
+    border-bottom: 19px solid transparent;
+    transform: rotate(0deg) translateY(-50%);
+    transition: all 0.25s ease-in-out;
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        background: $accent-color;
+        height: 5px;
+        width: 100%;
+        right: 0;
+        will-change: rotate;
+        transform: rotate(0deg);
+        transition: all 0.5s ease;
+    }
+    &:before {
+        top: -14px;
+    }
+    &:after {
+        bottom: -14px;
+    }
+    &.active {
+        background: transparent;
+        background-clip: content-box;
+    }
+    &.active:before {
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+        top: 0;
+    }
+    &.active:after {
+        bottom: 0;
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+    }
+}
+
+@include respond-to(large) {
+  .nav-burger {
+    display: none;
+  }
+}

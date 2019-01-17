@@ -1,0 +1,87 @@
+.install-after {
+  padding-top: 85px;
+  padding-bottom: 98px;
+  box-sizing: border-box;
+}
+
+.install-after__title {
+  width: 100%;
+  padding-right: 10%;
+  box-sizing: border-box;
+  margin-bottom: 58px;
+}
+
+.install-after__text {
+  @include indent;
+
+  width: 100%;
+  padding-right: 10%;
+  box-sizing: border-box;
+  margin-bottom: 78px;
+}
+
+.install-after__item {
+  padding-left: 150px;
+  position: relative;
+  box-sizing: border-box;
+
+  &::before {
+    @include pseudo;
+    width: 103px;
+    height: 103px;
+    left: 0;
+    top: 0;
+  }
+}
+
+.install-after__list {
+  @include list;
+  width: 100%;
+
+  @for $i from 1 through 6 {
+    .install-after__item:nth-child(#{$i})::before {
+      background-color: $white;
+      -webkit-mask-image: url(../img/sprites.svg#icon_0#{$i});
+      mask-image: url(../img/sprites.svg#icon_0#{$i});
+      mask-repeat:no-repeat;
+    }
+  }
+}
+.install-after__item {
+  display: inline-flex;
+  width: 100%;
+  padding-left: 150px;
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+  min-height: 103px;
+  align-items: center;
+
+& b {
+  color: $main-color;
+}
+
+  &::before {
+    @include pseudo;
+    width: 60px;
+    height: 60px;
+    left: 50px;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+  }
+  &::after {
+    @include pseudo;
+
+    width: 103px;
+    height: 103px;
+    left: 0;
+    top: 0;
+    background-color: $accent-color;
+    z-index: 5;
+    border-radius: 50%;
+  }
+}
+.install-after__button {
+  margin-bottom: 30px;
+}

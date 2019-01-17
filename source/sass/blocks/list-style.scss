@@ -1,0 +1,33 @@
+.list-style {
+  @include list;
+  padding-right: 10%;
+  box-sizing: border-box;
+}
+
+.list-style__item {
+  letter-spacing: 0.6px;
+  position: relative;
+  padding-left: 40px;
+  box-sizing: border-box;
+  margin-bottom: 60px;
+
+  &::before {
+    @include pseudo;
+
+    width: 11px;
+height: 11px;
+background-color: $main-color;
+top: 10px;
+left:0;
+border-radius: 50%;
+
+  }
+}
+
+.list-style__text {
+  @include indent;
+}
+
+.list-style__link {
+  margin-bottom: 35px;
+}

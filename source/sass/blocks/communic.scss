@@ -1,0 +1,25 @@
+.communic {
+  margin-top: 90px;
+}
+.communic__text {
+  color: $main-color;
+  letter-spacing: 0.6px;
+  width: 100%;
+  padding-right: 10%;
+  box-sizing: border-box;
+}
+
+.communic__list {
+  @include list;
+}
+.communic__item {
+  margin-bottom:40px;
+  padding-left: 110px;
+  box-sizing: border-box;
+
+  & a:focus,
+  & a:hover {
+    transform: scale(1.5);
+  }
+
+}

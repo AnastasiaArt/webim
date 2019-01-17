@@ -1,0 +1,50 @@
+.main-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 3px 7px rgba(0, 0, 2, 0.25);
+  background-color: $white;
+  z-index: 100;
+}
+
+.main-header__wrapper {
+  display: flex;
+  min-height: 150px;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  width: 92%;
+  margin: $center;
+  margin-top: 20px;
+}
+
+.main-header__logo {
+  display: block;
+  margin: $center;
+  text-decoration: none;
+}
+
+@include respond-to(large) {
+  .main-header {
+    @include bgImage(-18vw 0);
+
+
+    background-image: url("../img/header-bg.png");
+    background-repeat: no-repeat;
+  }
+  .main-header__wrapper {
+    width: 92.3%;
+    align-items: baseline;
+    min-height: 100px;
+    margin-top: 0;
+  }
+  .main-header__logo {
+    order: 2;
+
+    & img {
+      width: 114px;
+      height: 28px;
+    }
+  }
+}
