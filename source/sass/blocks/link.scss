@@ -3,6 +3,14 @@
   color: $link-color;
   font-size: 30px;
   line-height: 36px;
+  letter-spacing: -0.6px;
   text-decoration: underline;
   cursor: pointer;
+}
+
+@include respond-to(large) {
+  .link {
+    font-size: 24px;
+
+  }
 }

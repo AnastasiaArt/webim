@@ -66,6 +66,7 @@
   text-decoration: none;
   cursor: pointer;
   color: $main-color;
+  text-transform: uppercase;
 
   &:hover,
   &:focus {
@@ -98,8 +99,10 @@
    }
  }
   .main-nav__link {
+    @include font-style(18px, 20px,400);
       margin-bottom: 0;
       padding: 40px 0;
+      letter-spacing: 0.9px;
 
         &:hover,
         &:focus {

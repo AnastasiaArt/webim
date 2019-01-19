@@ -1,5 +1,12 @@
 .install-html {
-  padding-top: 91px;
-  padding-bottom: 32px;
+  padding-top: 85px;
+  padding-bottom: 38px;
   box-sizing: border-box;
+}
+
+@include respond-to(large) {
+  .install-html {
+  padding-bottom: 50px;
+  padding-top: 75px;
+}
 }

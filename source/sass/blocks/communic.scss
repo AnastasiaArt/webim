@@ -1,25 +1,122 @@
 .communic {
   margin-top: 90px;
+  padding-bottom: 70px;
 }
 .communic__text {
   color: $main-color;
   letter-spacing: 0.6px;
   width: 100%;
-  padding-right: 10%;
+  padding-right: 5%;
   box-sizing: border-box;
+  margin-bottom: 88px;
 }
 
 .communic__list {
   @include list;
+
 }
 .communic__item {
-  margin-bottom:40px;
+  margin-bottom: 43px;
+
+}
+
+.communic__link {
+  font-size: 24px;
+  line-height: 26px;
+  min-height: 67px;
   padding-left: 110px;
   box-sizing: border-box;
+  position: relative;
+  vertical-align: baseline;
+ &::before {
+   @include pseudo;
+   left: 0;
+   top: 20%;
+   width: 67px;
+   height: 67px;
+   transform: translateY(-50%);
+   background-repeat: no-repeat;
+   transform: scale(1.8);
+ }
 
-  & a:focus,
-  & a:hover {
-    transform: scale(1.5);
+  &:focus::before,
+  &:hover::before {
+    transform: scale(2);
   }
+  &--social::before {
+background-image: url(../img/sprites.svg#social_network);
+  }
+  &--message::before {
+    background-image: url(../img/sprites.svg#messanger);
+  }
+  &--chatbots::before {
+    background-image: url(../img/sprites.svg#chatbot);
+  }
+  &--feedback::before {
+    background-image: url(../img/sprites.svg#feedback);
+  }
+  &--yandex::before {
+    background-image: url(../img/sprites.svg#yandexd);
+  }
+  &--mobilechat::before {
+    background-image: url(../img/sprites.svg#mobile_chat);
+  }
+  &--email::before {
+    background-image: url(../img/sprites.svg#email);
+  }
+}
 
+@include respond-to(large) {
+  .communic {
+    margin-top: 67px;
+    padding-bottom: 35px;
+  }
+  .communic__text {
+    letter-spacing: 0;
+    padding-right: 35%;
+    font-size: 18px;
+    margin-bottom: 73px;
+  }
+  .communic__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .communic__item {
+    width: 30%;
+    margin-bottom: 15px;
+    &--social {
+   order: 1;
+    }
+    &--message {
+order:4;
+    }
+    &--chatbots{
+order:7;
+  margin-right: auto;
+    }
+    &--feedback{
+order: 2;
+    }
+    &--yandex{
+order: 5;
+    }
+    &--mobilechat{
+      order: 3;
+    }
+    &--email{
+order: 6;
+    }
+  }
+  .communic__link {
+    @include font-style(18px, 24px, 400);
+    padding-left: 70px;
+    padding-top: 5px;
+    letter-spacing: 0;
+    &::before {
+      left: -15px;
+      top: 0;
+      transform: scale(1);
+    }
+  }
 }

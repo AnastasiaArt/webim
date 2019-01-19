@@ -1,51 +1,61 @@
 .install-simple {
-  margin-top: 95px;
+  margin-top: 90px;
   padding-bottom: 87px;
   box-sizing: border-box;
 }
+
 .install-simple__title {
-  margin-bottom: 60px;
+  margin-bottom: 43px;
+  padding-right: 15.3%;
 }
 .install-simple__text {
   @include font-style(26px, 36px, 400);
 
   margin: 0;
   padding: 0;
-  margin-bottom: 90px;
+  margin-bottom: 80px;
+  padding-right: 16%;
 }
 
+.install-simple__wrapper-link {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .install-simple__link {
   padding-top: 135px;
-  width: 49%;
-  letter-spacing: 0.65px;
-  padding-left: 7%;
-  padding-right: 7%;
+  width: 48%;
+  min-width: 220px;
+  padding-left: 6%;
   box-sizing: border-box;
   position: relative;
   vertical-align: top;
+  font-size: 28px;
+  line-height: 32px;
 
   &::before {
-    @include font-style(150px, 24px, 700);
+    @include font-style(150px, 120px, 700);
     @include pseudo($content:"1");
 
     opacity: 0.15;
     color: $main-color;
-    letter-spacing: 3.75px;
     top: 0;
     left: 0;
-    width: 76px;
-    height: 106px;
+    width: 60px;
+    height: 110px;
     z-index: 5;
+    margin-left: -10px;
   }
   &::after {
     @include pseudo;
 
     width: 72px;
     height: 72px;
-    left: 7%;
-    top: 50%;
-    transform: translateY(-50%);
-    background-image: url(../img/sprites.svg#email);
+    left: 36px;
+    top: 36px;
+    background-image: url("../img/register.png");
     background-size: contain;
     z-index: 10;
     background-repeat: no-repeat;
@@ -54,5 +64,55 @@
 .install-simple__link--html {
   &::before {
     @include pseudo($content:"2");
+
   }
+  &::after {
+    background-image: url("../img/html.png");
+  }
+}
+
+@include respond-to(large) {
+  .install-simple {
+    margin-top: 62px;
+    padding-bottom: 90px;
+  }
+  .install-simple__title {
+    margin-bottom: 20px;
+  }
+  .install-simple__text {
+    @include font-style(16px, 24px, 400);
+    letter-spacing: 0.4px;
+    margin-bottom: 70px;
+  }
+  .install-simple__wrapper-link {
+    justify-content: flex-start;
+  }
+  .install-simple__link {
+    @include font-style(18px, 24px, 400);
+    letter-spacing: 0.45px;
+    width: 16%;
+    padding-left: 0;
+    margin-right: 5%;
+    min-width: 150px;
+    &::after {
+      width: 50px;
+      height: 50px;
+      left: 0;
+      top: 50px;
+  }
+  &::before {
+    margin-left: -50px;
+  }
+    &--html {
+      padding-left: 3.5%;
+      width: 30%;
+      &::before {
+        margin-left: -10px;
+      }
+      &::after {
+        left: 40px;
+      }
+    }
+
+}
 }

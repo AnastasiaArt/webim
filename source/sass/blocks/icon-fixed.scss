@@ -1,0 +1,41 @@
+@include respond-to(large) {
+  .icon-fixed {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.29);
+    background-color: #06d6d6;
+    border-radius: 50%;
+    display: block;
+    z-index: 20;
+    &:before,
+    &:after {
+      @include pseudo;
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: 23px;
+      right: 47px;
+      background-image: url(../img/sprites.svg#icon_fixed);
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 22;
+    }
+    &:before{
+      @include pseudo;
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: 23px;
+      right: 47px;
+      box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.29);
+      background-color: #06d6d6;
+      border-radius: 50%;
+      display: block;
+      z-index: 20;
+      &:focus,
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }

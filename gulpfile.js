@@ -34,37 +34,38 @@ gulp.task("css", function() {
   .pipe(server.stream());
 });
 
-// gulp.task("images", function() {
-//   return gulp.src("source/img/**/*.{png,jpg,svg}")
-//   .pipe(imagemin([
-//     imagemin.optipng({optimizationLevel:3}),
-//     imagemin.jpegtran({progressive:true}),
-//     imagemin.svgo()
-//   ]))
-//   .pipe(gulp.dest("source/img"));
-// });
+gulp.task("images", function() {
+  return gulp.src("source/img/**/*.{png,svg}")
+  .pipe(imagemin([
+    imagemin.optipng({optimizationLevel:3}),
+    imagemin.svgo()
+  ]))
+  .pipe(gulp.dest("source/img"));
+});
 
-//
+
 // gulp.task("spriteInline", function() {
-//   return gulp.src("source/img/icon_*.svg")
+//   return gulp.src("source/img/*.svg")
 //   .pipe(svgstore({
 //     inlineSvg:true
 //   }))
 //   .pipe(rename("sprite-inline.svg"))
-//   .pipe(gulp.dest("build/img"));
+//   .pipe(gulp.dest("source/img"));
 // });
 gulp.task('sprite', function () {
-    return gulp.src('source/img/*.svg') // svg files for sprite
-        .pipe(svgSprite({
-                mode: {
-                    stack: {
-                        sprite: "../sprites.svg"  //sprite file name
-                    }
-                },
-            }
-        ))
-        .pipe(gulp.dest('build/img/'));
+  return gulp.src('source/img/*.svg') // svg files for sprite
+  .pipe(svgSprite({
+    mode: {
+      symbol: true ,// Activate the «symbol» mode
+    stack: {
+      sprite: "../sprites.svg"  //sprite file name
+    }
+  }
+}
+))
+.pipe(gulp.dest('build/img/'));
 });
+
 
 gulp.task("html", function() {
   return gulp.src("source/*.html")
@@ -74,7 +75,8 @@ gulp.task("html", function() {
 gulp.task("copy", function () {
   return gulp.src([
     "source/fonts/**/*.{woff,woff2}",
-    "source/img/**",
+    "source/img/**/*.png",
+    "source/img/**/logo_*.svg",
     "source/js/**"
   ], {
     base: "source"
@@ -92,7 +94,7 @@ gulp.task("server", function () {
   })
 
   gulp.watch("source/sass/**/*.{scss,sass}", gulp.series("css"));
-  gulp.watch("source/img/icon-*.svg", gulp.series("sprite", "html", "refresh"));
+  gulp.watch("source/img/*.svg", gulp.series("sprite", "html", "refresh"));
   gulp.watch("source/*.html", gulp.series("html", "refresh"));
 });
 
@@ -103,9 +105,10 @@ gulp.task("refresh", function(done) {
 
 gulp.task("build", gulp.series(
   "delete",
+  "images",
+  "sprite",
   "copy",
   "css",
-  "sprite",
   "html"
 ));
 

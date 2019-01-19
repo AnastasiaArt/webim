@@ -1,18 +1,52 @@
 .install {
-  padding-top: 79px;
-  padding-bottom: 77px;
+  padding-top: 83px;
+  padding-bottom: 50px;
   box-sizing: border-box;
 }
+
 .install__text {
   @include font-style(26px,36px,400);
 
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  padding-right: 13.7%;
-  margin-bottom: 92px;
+  padding-right: 15.3%;
+  margin-bottom: 90px;
 }
 
 .install__button {
   margin-bottom: 30px;
+}
+
+@include respond-to(large) {
+  .install {
+    padding-bottom: 68px;
+    padding-top: 75px;
+  }
+  .install__title {
+    font-size: 36px;
+    letter-spacing: 0.9px;
+    margin-bottom: 30px;
+  }
+
+  .install__text {
+  @include font-style(16px,24px,400);
+  letter-spacing: 0.4px;
+  width: 79%;
+  margin-bottom: 55px;
+}
+
+.install__button {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+  min-width: 256px;
+
+&--tarif {
+  margin-left: 2%;
+  background-color: $white;
+border: 1px solid $main-color;
+color: $main-color;
+}
+}
 }

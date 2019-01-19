@@ -9,7 +9,7 @@
   letter-spacing: 2.75px;
   border: 3px solid $main-color;
   text-align: center;
-  min-height: 93px;
+  min-height: 90px;
   padding-top: 29px;
   padding-bottom: 26px;
   cursor: pointer;
@@ -25,5 +25,21 @@
   &--blue {
     color: $white;
     background-color: $main-color;
+  }
+}
+@include respond-to(large) {
+  .button {
+    @include font-style(14px, 16px, 700);
+    width: 25%;
+    padding-top: 15px;
+    padding-bottom: 6px;
+    letter-spacing: 0;
+    min-height: 48px;
+    text-align: center;
+    &--green {
+      color: $white;
+      background-color: $accent-color;
+      border: 1px solid $accent-color;
+    }
   }
 }

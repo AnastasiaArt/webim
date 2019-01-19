@@ -1,0 +1,11 @@
+.social {
+  @include list;
+
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.social__item {
+  width: 20%;
+}

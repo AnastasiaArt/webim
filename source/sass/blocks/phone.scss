@@ -1,0 +1,46 @@
+.phone {
+  @include list;
+}
+
+.phone__item {
+  @include font-style(16px, 24px, 400);
+  letter-spacing: 0.16px;
+  margin-bottom: 19px;
+  box-sizing: border-box;
+  & a  {
+    font-size: 22px;
+    color: $white;
+    display: block;
+    box-sizing: border-box;
+    letter-spacing: 0.22px;
+    text-decoration: none;
+    cursor: pointer;
+    &:focus,
+    &:hover {
+      color: $accent-color;
+    }
+  }
+  &--main {
+    padding-top: 5px;
+    & a {
+      font-size: 26px;
+      padding-left: 40px;
+      letter-spacing: 0.26px;
+      position: relative;
+      min-height: 30px;
+
+      &::before {
+        @include pseudo;
+        width: 60px;
+        height: 60px;
+        top:0;
+        left:-15px;
+        border-radius: 50%;
+        background-color: $accent-color;
+        -webkit-mask-image: url(../img/sprites.svg#phone_icon1);
+        mask-image: url(../img/sprites.svg#phone_icon1);
+        mask-repeat: no-repeat;
+      }
+    }
+  }
+}

@@ -1,6 +1,5 @@
 .list-style {
   @include list;
-  padding-right: 10%;
   box-sizing: border-box;
 }
 
@@ -9,25 +8,54 @@
   position: relative;
   padding-left: 40px;
   box-sizing: border-box;
-  margin-bottom: 60px;
+  margin-bottom: 62px;
 
   &::before {
     @include pseudo;
 
     width: 11px;
-height: 11px;
-background-color: $main-color;
-top: 10px;
-left:0;
-border-radius: 50%;
+    height: 11px;
+    background-color: $main-color;
+    top: 10px;
+    left:0;
+    border-radius: 50%;
 
   }
 }
 
 .list-style__text {
   @include indent;
+  padding-right: 5%;
+  line-height: 28px;
 }
 
 .list-style__link {
   margin-bottom: 35px;
+  padding-right: 22%;
 }
+ @include respond-to(large) {
+   .list-style__item {
+     margin-bottom: 38px;
+   }
+   .list-style__link {
+    font-size: 24px;
+    letter-spacing: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+
+
+      &::before {
+        width: 8px;
+        height: 8px;
+   }
+}
+   .list-style__text {
+    font-size: 16px;
+    line-height: 36px;
+     letter-spacing: 0.4px;
+   padding-right: 0;
+   & span {
+     font-weight: 700;
+   }
+ }
+ }
