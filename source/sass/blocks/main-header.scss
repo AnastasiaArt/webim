@@ -8,6 +8,7 @@
   z-index: 100;
   box-sizing: border-box;
   min-height: 150px;
+  padding-top: 20px;
 }
 
 .main-header__wrapper {
@@ -38,6 +39,7 @@
     min-height: 100px;
     background-image: url("../img/header-bg.png");
     background-repeat: no-repeat;
+    padding-top: 0;
   }
   .main-header__wrapper {
     width: 92%;
